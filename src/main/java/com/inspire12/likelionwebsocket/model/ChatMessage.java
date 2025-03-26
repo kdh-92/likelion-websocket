@@ -8,6 +8,19 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ChatMessage {
 
+    public static ChatMessage createOutMessage(String sender) {
+        ChatMessage outMessage = ChatMessage.builder()
+                .sender("System")
+                .content(
+                        String.format("""
+                        %s 님이 나갔습니다.
+                        """, sender))
+                .type(ChatMessage.MessageType.LEAVE)
+                .build();
+
+        return outMessage;
+    }
+
     public enum MessageType {
         CHAT,
         JOIN,
