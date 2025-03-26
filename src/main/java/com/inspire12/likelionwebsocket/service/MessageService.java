@@ -18,4 +18,17 @@ public class MessageService {
 
         return welcomeMessage;
     }
+
+    public ChatMessage createOutMessage(ChatMessage chatMessage) {
+        ChatMessage outMessage = ChatMessage.builder()
+                .sender("System")
+                .content(
+                        String.format("""
+                        %s 님이 나갔습니다...
+                        """, chatMessage.getSender()))
+                .type(ChatMessage.MessageType.LEAVE)
+                .build();
+
+        return outMessage;
+    }
 }

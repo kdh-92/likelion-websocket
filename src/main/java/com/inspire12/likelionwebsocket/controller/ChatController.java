@@ -26,4 +26,10 @@ public class ChatController {
     public ChatMessage addUser(ChatMessage chatMessage) {
         return messageService.createWelcomeMessage(chatMessage);
     }
+
+    @MessageMapping("/chat.outMessage")
+    @SendTo("/topic/public")
+    public ChatMessage outUser(ChatMessage chatMessage) {
+        return messageService.createOutMessage(chatMessage);
+    }
 }
