@@ -20,7 +20,7 @@ public class StompMessagingService {
     public void sendToUser(String username, ChatMessage chatMessage) {
     }
 
-//    public ChatMessage createWelcomeMessage(ChatMessage chatMessage) {
-//        return ChatMessage
-//    }
+    public ChatMessage createWelcomeMessage(ChatMessage chatMessage) {
+        return ChatMessage.createWelcomeMessage(chatMessage.getSender());
+    }
 }
